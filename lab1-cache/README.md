@@ -97,4 +97,4 @@ bin/sum_array <数组大小>
 详细结果可查看：
 
 - PDF实验报告：`lab1_cache.pdf`
-- 原始实验结果：`cache_optimization_report.md`
+- 原始实验结果：`report/cache_optimization_report.md`
