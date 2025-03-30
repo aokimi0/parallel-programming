@@ -1,5 +1,5 @@
 # 项目特定忽略
-reference/
+reference*/
 .zip
 
 # 编译文件
@@ -14,7 +14,7 @@ __pycache__/
 *.out
 
 # 编译目录
-build/
+*build/
 dist/
 *.egg-info/
 
@@ -29,6 +29,8 @@ ENV/
 *.sublime-project
 *.sublime-workspace
 .vs/
+.cursor/
+.cursorrules
 
 # 操作系统文件
 .DS_Store
