@@ -39,7 +39,8 @@ desktop.ini
 
 # 日志文件
 *.log
-logs/
+*logs/
+
 
 # 临时文件
 tmp/
