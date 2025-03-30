@@ -177,26 +177,26 @@ compile_programs() {
     
     # 如果指定了ARM测试，编译ARM版本
     if [ "$WITH_ARM" == "1" ] || [ "$ARCH_COMPARE" == "1" ]; then
-        # ARM版本
-        echo -e "${BLUE}编译ARM版本...${NC}"
+    # ARM版本
+    echo -e "${BLUE}编译ARM版本...${NC}"
         
         if ! command -v aarch64-linux-gnu-g++ &> /dev/null; then
             echo -e "${RED}ARM交叉编译器未安装，跳过ARM编译${NC}"
         else
             # 创建ARM构建目录
             mkdir -p arm_build
-            
-            # 编译不同优化级别的ARM版本
+    
+    # 编译不同优化级别的ARM版本
             aarch64-linux-gnu-g++ -O0 src/matrix_vector.cpp -o arm_build/matrix_vector_arm_O0
             aarch64-linux-gnu-g++ -O0 src/sum_array.cpp -o arm_build/sum_array_arm_O0
             aarch64-linux-gnu-g++ -O2 src/matrix_vector.cpp -o arm_build/matrix_vector_arm_O2
             aarch64-linux-gnu-g++ -O2 src/sum_array.cpp -o arm_build/sum_array_arm_O2
-            
-            # 创建符号链接作为默认版本
+    
+    # 创建符号链接作为默认版本
             ln -sf matrix_vector_arm_O0 arm_build/matrix_vector_arm
             ln -sf sum_array_arm_O0 arm_build/sum_array_arm
-            
-            echo -e "${BLUE}ARM版本编译完成${NC}"
+    
+    echo -e "${BLUE}ARM版本编译完成${NC}"
         fi
     fi
     
@@ -205,7 +205,7 @@ compile_programs() {
     ls -lh bin/
     
     if [ "$WITH_ARM" == "1" ] || [ "$ARCH_COMPARE" == "1" ]; then
-        echo -e "${BLUE}ARM二进制文件:${NC}"
+    echo -e "${BLUE}ARM二进制文件:${NC}"
         ls -lh arm_build/ 2>/dev/null || echo "ARM二进制文件未找到"
     fi
 }
@@ -532,7 +532,7 @@ generate_plots() {
     fi
     
     # 架构对比图表脚本
-    echo -e "${BLUE}执行架构对比图表脚本...${NC}"
+        echo -e "${BLUE}执行架构对比图表脚本...${NC}"
     if [ -f src/plot_architecture_comparison.py ]; then
         python3 src/plot_architecture_comparison.py
     else
@@ -913,7 +913,7 @@ main() {
                 GENERATE_ONLY=1
                 ;;
             i)
-                INSTALL_DEPS=1
+        INSTALL_DEPS=1
                 ;;
             \?)
                 echo -e "${RED}未知选项: -$OPTARG${NC}"
@@ -980,11 +980,11 @@ main() {
     if [ $WITH_ARM -eq 1 ]; then
         # 检查ARM工具是否可用
         if command -v aarch64-linux-gnu-g++ &> /dev/null && command -v qemu-aarch64 &> /dev/null; then
-            # 运行矩阵-向量乘法测试 (ARM)
-            run_matrix_vector_test_arm
-            
-            # 运行数组求和测试 (ARM)
-            run_sum_array_test_arm
+        # 运行矩阵-向量乘法测试 (ARM)
+        run_matrix_vector_test_arm
+        
+        # 运行数组求和测试 (ARM)
+        run_sum_array_test_arm
         else
             echo -e "${YELLOW}警告: ARM工具链不可用，跳过ARM测试${NC}"
             # 创建模拟ARM数据，以便后续图表生成
@@ -1011,7 +1011,7 @@ main() {
     if [ $WITH_CACHE -eq 1 ]; then
         # 检查Valgrind是否安装
         if command -v valgrind &> /dev/null; then
-            collect_cache_data
+        collect_cache_data
         else
             echo -e "${YELLOW}警告: Valgrind未安装，创建模拟缓存数据...${NC}"
             # 创建模拟缓存数据文件
