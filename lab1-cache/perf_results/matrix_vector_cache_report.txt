@@ -1,0 +1,1296 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 95  of event 'cpu-clock:pppH'
+# Event count (approx.): 23750000
+#
+# Children      Self  Command        Shared Object         Symbol                            
+# ........  ........  .............  ....................  ..................................
+#
+    66.32%     4.21%  matrix_vector  matrix_vector         [.] main
+            |
+            ---main
+               |          
+                --62.11%--asm_exc_page_fault
+                          exc_page_fault
+                          do_user_addr_fault
+                          |          
+                          |--60.00%--handle_mm_fault
+                          |          __handle_mm_fault
+                          |          |          
+                          |          |--58.95%--do_huge_pmd_anonymous_page
+                          |          |          |          
+                          |          |          |--52.63%--clear_huge_page
+                          |          |          |          |          
+                          |          |          |           --51.58%--clear_subpage
+                          |          |          |                     |          
+                          |          |          |                      --50.53%--clear_page_erms
+                          |          |          |          
+                          |          |           --6.32%--__alloc_pages
+                          |          |                     get_page_from_freelist
+                          |          |                     prep_compound_page
+                          |          |          
+                          |           --1.05%--_raw_spin_lock
+                          |          
+                           --1.05%--find_vma
+                                     vmacache_find
+
+    64.21%     0.00%  matrix_vector  [kernel.kallsyms]     [k] asm_exc_page_fault
+            |
+            ---asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               |          
+               |--62.11%--handle_mm_fault
+               |          __handle_mm_fault
+               |          |          
+               |          |--58.95%--do_huge_pmd_anonymous_page
+               |          |          |          
+               |          |          |--52.63%--clear_huge_page
+               |          |          |          |          
+               |          |          |           --51.58%--clear_subpage
+               |          |          |                     |          
+               |          |          |                      --50.53%--clear_page_erms
+               |          |          |          
+               |          |           --6.32%--__alloc_pages
+               |          |                     get_page_from_freelist
+               |          |                     prep_compound_page
+               |          |          
+               |          |--1.05%--_raw_spin_lock
+               |          |          
+               |          |--1.05%--copy_page
+               |          |          
+               |           --1.05%--__do_fault
+               |                     filemap_fault
+               |                     page_cache_ra_unbounded
+               |                     read_pages
+               |                     v9fs_vfs_readpages
+               |                     read_cache_pages
+               |                     v9fs_fid_readpage
+               |                     p9_client_read
+               |                     p9_client_read_once
+               |                     p9_client_rpc
+               |                     schedule
+               |                     __schedule
+               |                     finish_task_switch.isra.0
+               |          
+                --1.05%--find_vma
+                          vmacache_find
+
+    64.21%     0.00%  matrix_vector  [kernel.kallsyms]     [k] exc_page_fault
+            |
+            ---exc_page_fault
+               do_user_addr_fault
+               |          
+               |--62.11%--handle_mm_fault
+               |          __handle_mm_fault
+               |          |          
+               |          |--58.95%--do_huge_pmd_anonymous_page
+               |          |          |          
+               |          |          |--52.63%--clear_huge_page
+               |          |          |          |          
+               |          |          |           --51.58%--clear_subpage
+               |          |          |                     |          
+               |          |          |                      --50.53%--clear_page_erms
+               |          |          |          
+               |          |           --6.32%--__alloc_pages
+               |          |                     get_page_from_freelist
+               |          |                     prep_compound_page
+               |          |          
+               |          |--1.05%--_raw_spin_lock
+               |          |          
+               |          |--1.05%--copy_page
+               |          |          
+               |           --1.05%--__do_fault
+               |                     filemap_fault
+               |                     page_cache_ra_unbounded
+               |                     read_pages
+               |                     v9fs_vfs_readpages
+               |                     read_cache_pages
+               |                     v9fs_fid_readpage
+               |                     p9_client_read
+               |                     p9_client_read_once
+               |                     p9_client_rpc
+               |                     schedule
+               |                     __schedule
+               |                     finish_task_switch.isra.0
+               |          
+                --1.05%--find_vma
+                          vmacache_find
+
+    64.21%     1.05%  matrix_vector  [kernel.kallsyms]     [k] do_user_addr_fault
+            |          
+            |--63.16%--do_user_addr_fault
+            |          |          
+            |          |--62.11%--handle_mm_fault
+            |          |          __handle_mm_fault
+            |          |          |          
+            |          |          |--58.95%--do_huge_pmd_anonymous_page
+            |          |          |          |          
+            |          |          |          |--52.63%--clear_huge_page
+            |          |          |          |          |          
+            |          |          |          |           --51.58%--clear_subpage
+            |          |          |          |                     |          
+            |          |          |          |                      --50.53%--clear_page_erms
+            |          |          |          |          
+            |          |          |           --6.32%--__alloc_pages
+            |          |          |                     get_page_from_freelist
+            |          |          |                     prep_compound_page
+            |          |          |          
+            |          |          |--1.05%--_raw_spin_lock
+            |          |          |          
+            |          |          |--1.05%--copy_page
+            |          |          |          
+            |          |           --1.05%--__do_fault
+            |          |                     filemap_fault
+            |          |                     page_cache_ra_unbounded
+            |          |                     read_pages
+            |          |                     v9fs_vfs_readpages
+            |          |                     read_cache_pages
+            |          |                     v9fs_fid_readpage
+            |          |                     p9_client_read
+            |          |                     p9_client_read_once
+            |          |                     p9_client_rpc
+            |          |                     schedule
+            |          |                     __schedule
+            |          |                     finish_task_switch.isra.0
+            |          |          
+            |           --1.05%--find_vma
+            |                     vmacache_find
+            |          
+             --1.05%--main
+                       asm_exc_page_fault
+                       exc_page_fault
+                       do_user_addr_fault
+
+    62.11%     0.00%  matrix_vector  [kernel.kallsyms]     [k] handle_mm_fault
+            |
+            ---handle_mm_fault
+               __handle_mm_fault
+               |          
+               |--58.95%--do_huge_pmd_anonymous_page
+               |          |          
+               |          |--52.63%--clear_huge_page
+               |          |          |          
+               |          |           --51.58%--clear_subpage
+               |          |                     |          
+               |          |                      --50.53%--clear_page_erms
+               |          |          
+               |           --6.32%--__alloc_pages
+               |                     get_page_from_freelist
+               |                     prep_compound_page
+               |          
+               |--1.05%--_raw_spin_lock
+               |          
+               |--1.05%--copy_page
+               |          
+                --1.05%--__do_fault
+                          filemap_fault
+                          page_cache_ra_unbounded
+                          read_pages
+                          v9fs_vfs_readpages
+                          read_cache_pages
+                          v9fs_fid_readpage
+                          p9_client_read
+                          p9_client_read_once
+                          p9_client_rpc
+                          schedule
+                          __schedule
+                          finish_task_switch.isra.0
+
+    62.11%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __handle_mm_fault
+            |
+            ---__handle_mm_fault
+               |          
+               |--58.95%--do_huge_pmd_anonymous_page
+               |          |          
+               |          |--52.63%--clear_huge_page
+               |          |          |          
+               |          |           --51.58%--clear_subpage
+               |          |                     |          
+               |          |                      --50.53%--clear_page_erms
+               |          |          
+               |           --6.32%--__alloc_pages
+               |                     get_page_from_freelist
+               |                     prep_compound_page
+               |          
+               |--1.05%--_raw_spin_lock
+               |          
+               |--1.05%--copy_page
+               |          
+                --1.05%--__do_fault
+                          filemap_fault
+                          page_cache_ra_unbounded
+                          read_pages
+                          v9fs_vfs_readpages
+                          read_cache_pages
+                          v9fs_fid_readpage
+                          p9_client_read
+                          p9_client_read_once
+                          p9_client_rpc
+                          schedule
+                          __schedule
+                          finish_task_switch.isra.0
+
+    58.95%     0.00%  matrix_vector  [kernel.kallsyms]     [k] do_huge_pmd_anonymous_page
+            |
+            ---do_huge_pmd_anonymous_page
+               |          
+               |--52.63%--clear_huge_page
+               |          |          
+               |           --51.58%--clear_subpage
+               |                     |          
+               |                      --50.53%--clear_page_erms
+               |          
+                --6.32%--__alloc_pages
+                          get_page_from_freelist
+                          prep_compound_page
+
+    52.63%     1.05%  matrix_vector  [kernel.kallsyms]     [k] clear_huge_page
+            |          
+            |--51.58%--clear_huge_page
+            |          clear_subpage
+            |          |          
+            |           --50.53%--clear_page_erms
+            |          
+             --1.05%--main
+                       asm_exc_page_fault
+                       exc_page_fault
+                       do_user_addr_fault
+                       handle_mm_fault
+                       __handle_mm_fault
+                       do_huge_pmd_anonymous_page
+                       clear_huge_page
+
+    51.58%     1.05%  matrix_vector  [kernel.kallsyms]     [k] clear_subpage
+            |          
+            |--50.53%--clear_subpage
+            |          clear_page_erms
+            |          
+             --1.05%--main
+                       asm_exc_page_fault
+                       exc_page_fault
+                       do_user_addr_fault
+                       handle_mm_fault
+                       __handle_mm_fault
+                       do_huge_pmd_anonymous_page
+                       clear_huge_page
+                       clear_subpage
+
+    50.53%    50.53%  matrix_vector  [kernel.kallsyms]     [k] clear_page_erms
+            |
+            ---main
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               do_huge_pmd_anonymous_page
+               clear_huge_page
+               clear_subpage
+               clear_page_erms
+
+    27.37%    27.37%  matrix_vector  matrix_vector         [.] _Z10row_accessi
+            |
+            ---_Z10row_accessi
+
+     6.32%     6.32%  matrix_vector  [kernel.kallsyms]     [k] prep_compound_page
+            |
+            ---main
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               do_huge_pmd_anonymous_page
+               __alloc_pages
+               get_page_from_freelist
+               prep_compound_page
+
+     6.32%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __alloc_pages
+            |
+            ---__alloc_pages
+               get_page_from_freelist
+               prep_compound_page
+
+     6.32%     0.00%  matrix_vector  [kernel.kallsyms]     [k] get_page_from_freelist
+            |
+            ---get_page_from_freelist
+               prep_compound_page
+
+     4.21%     0.00%  matrix_vector  [kernel.kallsyms]     [k] entry_SYSCALL_64_after_hwframe
+            |
+            ---entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               |          
+               |--1.05%--syscall_exit_to_user_mode
+               |          exit_to_user_mode_prepare
+               |          task_work_run
+               |          __fput
+               |          pipe_release
+               |          free_pipe_info
+               |          free_unref_page
+               |          free_pcp_prepare
+               |          __memcg_kmem_uncharge_page
+               |          obj_cgroup_uncharge_pages
+               |          refill_stock
+               |          
+               |--1.05%--__x64_sys_execve
+               |          do_execveat_common.isra.0
+               |          bprm_execve
+               |          load_elf_binary
+               |          __clear_user
+               |          asm_exc_page_fault
+               |          exc_page_fault
+               |          do_user_addr_fault
+               |          handle_mm_fault
+               |          __handle_mm_fault
+               |          __do_fault
+               |          filemap_fault
+               |          page_cache_ra_unbounded
+               |          read_pages
+               |          v9fs_vfs_readpages
+               |          read_cache_pages
+               |          v9fs_fid_readpage
+               |          p9_client_read
+               |          p9_client_read_once
+               |          p9_client_rpc
+               |          schedule
+               |          __schedule
+               |          finish_task_switch.isra.0
+               |          
+               |--1.05%--ksys_mmap_pgoff
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __do_munmap
+               |          __split_vma
+               |          __vma_adjust
+               |          vma_interval_tree_insert
+               |          
+                --1.05%--__x64_sys_exit_group
+                          do_group_exit
+                          do_exit
+                          mmput
+                          exit_mmap
+                          unmap_vmas
+                          unmap_page_range
+
+     4.21%     0.00%  matrix_vector  [kernel.kallsyms]     [k] do_syscall_64
+            |
+            ---do_syscall_64
+               |          
+               |--1.05%--syscall_exit_to_user_mode
+               |          exit_to_user_mode_prepare
+               |          task_work_run
+               |          __fput
+               |          pipe_release
+               |          free_pipe_info
+               |          free_unref_page
+               |          free_pcp_prepare
+               |          __memcg_kmem_uncharge_page
+               |          obj_cgroup_uncharge_pages
+               |          refill_stock
+               |          
+               |--1.05%--__x64_sys_execve
+               |          do_execveat_common.isra.0
+               |          bprm_execve
+               |          load_elf_binary
+               |          __clear_user
+               |          asm_exc_page_fault
+               |          exc_page_fault
+               |          do_user_addr_fault
+               |          handle_mm_fault
+               |          __handle_mm_fault
+               |          __do_fault
+               |          filemap_fault
+               |          page_cache_ra_unbounded
+               |          read_pages
+               |          v9fs_vfs_readpages
+               |          read_cache_pages
+               |          v9fs_fid_readpage
+               |          p9_client_read
+               |          p9_client_read_once
+               |          p9_client_rpc
+               |          schedule
+               |          __schedule
+               |          finish_task_switch.isra.0
+               |          
+               |--1.05%--ksys_mmap_pgoff
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __do_munmap
+               |          __split_vma
+               |          __vma_adjust
+               |          vma_interval_tree_insert
+               |          
+                --1.05%--__x64_sys_exit_group
+                          do_group_exit
+                          do_exit
+                          mmput
+                          exit_mmap
+                          unmap_vmas
+                          unmap_page_range
+
+     3.16%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] _dl_start_user
+            |
+            ---_dl_start_user
+               _dl_start
+               _dl_sysdep_start
+               dl_main
+               |          
+               |--1.05%--_dl_relocate_object
+               |          asm_exc_page_fault
+               |          exc_page_fault
+               |          do_user_addr_fault
+               |          handle_mm_fault
+               |          __handle_mm_fault
+               |          copy_page
+               |          
+               |--1.05%--_dl_map_object_deps
+               |          _dl_catch_exception
+               |          openaux
+               |          _dl_map_object
+               |          _dl_map_object_from_fd
+               |          mmap64
+               |          entry_SYSCALL_64_after_hwframe
+               |          do_syscall_64
+               |          ksys_mmap_pgoff
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __do_munmap
+               |          __split_vma
+               |          __vma_adjust
+               |          vma_interval_tree_insert
+               |          
+                --1.05%--__getrlimit
+
+     3.16%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] _dl_start
+            |
+            ---_dl_start
+               _dl_sysdep_start
+               dl_main
+               |          
+               |--1.05%--_dl_relocate_object
+               |          asm_exc_page_fault
+               |          exc_page_fault
+               |          do_user_addr_fault
+               |          handle_mm_fault
+               |          __handle_mm_fault
+               |          copy_page
+               |          
+               |--1.05%--_dl_map_object_deps
+               |          _dl_catch_exception
+               |          openaux
+               |          _dl_map_object
+               |          _dl_map_object_from_fd
+               |          mmap64
+               |          entry_SYSCALL_64_after_hwframe
+               |          do_syscall_64
+               |          ksys_mmap_pgoff
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __do_munmap
+               |          __split_vma
+               |          __vma_adjust
+               |          vma_interval_tree_insert
+               |          
+                --1.05%--__getrlimit
+
+     3.16%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] _dl_sysdep_start
+            |
+            ---_dl_sysdep_start
+               dl_main
+               |          
+               |--1.05%--_dl_relocate_object
+               |          asm_exc_page_fault
+               |          exc_page_fault
+               |          do_user_addr_fault
+               |          handle_mm_fault
+               |          __handle_mm_fault
+               |          copy_page
+               |          
+               |--1.05%--_dl_map_object_deps
+               |          _dl_catch_exception
+               |          openaux
+               |          _dl_map_object
+               |          _dl_map_object_from_fd
+               |          mmap64
+               |          entry_SYSCALL_64_after_hwframe
+               |          do_syscall_64
+               |          ksys_mmap_pgoff
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __do_munmap
+               |          __split_vma
+               |          __vma_adjust
+               |          vma_interval_tree_insert
+               |          
+                --1.05%--__getrlimit
+
+     3.16%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] dl_main
+            |
+            ---dl_main
+               |          
+               |--1.05%--_dl_relocate_object
+               |          asm_exc_page_fault
+               |          exc_page_fault
+               |          do_user_addr_fault
+               |          handle_mm_fault
+               |          __handle_mm_fault
+               |          copy_page
+               |          
+               |--1.05%--_dl_map_object_deps
+               |          _dl_catch_exception
+               |          openaux
+               |          _dl_map_object
+               |          _dl_map_object_from_fd
+               |          mmap64
+               |          entry_SYSCALL_64_after_hwframe
+               |          do_syscall_64
+               |          ksys_mmap_pgoff
+               |          vm_mmap_pgoff
+               |          do_mmap
+               |          mmap_region
+               |          __do_munmap
+               |          __split_vma
+               |          __vma_adjust
+               |          vma_interval_tree_insert
+               |          
+                --1.05%--__getrlimit
+
+     1.05%     1.05%  matrix_vector  [kernel.kallsyms]     [k] finish_task_switch.isra.0
+            |
+            ---0x6d1cab
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               load_elf_binary
+               __clear_user
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               __do_fault
+               filemap_fault
+               page_cache_ra_unbounded
+               read_pages
+               v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [unknown]             [k] 0x00000000006d1cab
+            |
+            ---0x6d1cab
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               __x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               load_elf_binary
+               __clear_user
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               __do_fault
+               filemap_fault
+               page_cache_ra_unbounded
+               read_pages
+               v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __x64_sys_execve
+            |
+            ---__x64_sys_execve
+               do_execveat_common.isra.0
+               bprm_execve
+               load_elf_binary
+               __clear_user
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               __do_fault
+               filemap_fault
+               page_cache_ra_unbounded
+               read_pages
+               v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] do_execveat_common.isra.0
+            |
+            ---do_execveat_common.isra.0
+               bprm_execve
+               load_elf_binary
+               __clear_user
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               __do_fault
+               filemap_fault
+               page_cache_ra_unbounded
+               read_pages
+               v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] bprm_execve
+            |
+            ---bprm_execve
+               load_elf_binary
+               __clear_user
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               __do_fault
+               filemap_fault
+               page_cache_ra_unbounded
+               read_pages
+               v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     1.05%  matrix_vector  [kernel.kallsyms]     [k] vma_interval_tree_insert
+            |
+            ---_dl_start_user
+               _dl_start
+               _dl_sysdep_start
+               dl_main
+               _dl_map_object_deps
+               _dl_catch_exception
+               openaux
+               _dl_map_object
+               _dl_map_object_from_fd
+               mmap64
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               ksys_mmap_pgoff
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] load_elf_binary
+            |
+            ---load_elf_binary
+               __clear_user
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               __do_fault
+               filemap_fault
+               page_cache_ra_unbounded
+               read_pages
+               v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __clear_user
+            |
+            ---__clear_user
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               __do_fault
+               filemap_fault
+               page_cache_ra_unbounded
+               read_pages
+               v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] _dl_map_object_deps
+            |
+            ---_dl_map_object_deps
+               _dl_catch_exception
+               openaux
+               _dl_map_object
+               _dl_map_object_from_fd
+               mmap64
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               ksys_mmap_pgoff
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] _dl_catch_exception
+            |
+            ---_dl_catch_exception
+               openaux
+               _dl_map_object
+               _dl_map_object_from_fd
+               mmap64
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               ksys_mmap_pgoff
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     1.05%  matrix_vector  [kernel.kallsyms]     [k] refill_stock
+            |
+            ---_start
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               syscall_exit_to_user_mode
+               exit_to_user_mode_prepare
+               task_work_run
+               __fput
+               pipe_release
+               free_pipe_info
+               free_unref_page
+               free_pcp_prepare
+               __memcg_kmem_uncharge_page
+               obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] _start
+            |
+            ---_start
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               syscall_exit_to_user_mode
+               exit_to_user_mode_prepare
+               task_work_run
+               __fput
+               pipe_release
+               free_pipe_info
+               free_unref_page
+               free_pcp_prepare
+               __memcg_kmem_uncharge_page
+               obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] openaux
+            |
+            ---openaux
+               _dl_map_object
+               _dl_map_object_from_fd
+               mmap64
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               ksys_mmap_pgoff
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __do_fault
+            |
+            ---__do_fault
+               filemap_fault
+               page_cache_ra_unbounded
+               read_pages
+               v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] _dl_map_object
+            |
+            ---_dl_map_object
+               _dl_map_object_from_fd
+               mmap64
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               ksys_mmap_pgoff
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] filemap_fault
+            |
+            ---filemap_fault
+               page_cache_ra_unbounded
+               read_pages
+               v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] _dl_map_object_from_fd
+            |
+            ---_dl_map_object_from_fd
+               mmap64
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               ksys_mmap_pgoff
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     1.05%  matrix_vector  [kernel.kallsyms]     [k] copy_page
+            |
+            ---_dl_start_user
+               _dl_start
+               _dl_sysdep_start
+               dl_main
+               _dl_relocate_object
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               copy_page
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] page_cache_ra_unbounded
+            |
+            ---page_cache_ra_unbounded
+               read_pages
+               v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] syscall_exit_to_user_mode
+            |
+            ---syscall_exit_to_user_mode
+               exit_to_user_mode_prepare
+               task_work_run
+               __fput
+               pipe_release
+               free_pipe_info
+               free_unref_page
+               free_pcp_prepare
+               __memcg_kmem_uncharge_page
+               obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] mmap64
+            |
+            ---mmap64
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               ksys_mmap_pgoff
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] exit_to_user_mode_prepare
+            |
+            ---exit_to_user_mode_prepare
+               task_work_run
+               __fput
+               pipe_release
+               free_pipe_info
+               free_unref_page
+               free_pcp_prepare
+               __memcg_kmem_uncharge_page
+               obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] read_pages
+            |
+            ---read_pages
+               v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     1.05%  matrix_vector  [kernel.kallsyms]     [k] unmap_page_range
+            |
+            ---entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               __x64_sys_exit_group
+               do_group_exit
+               do_exit
+               mmput
+               exit_mmap
+               unmap_vmas
+               unmap_page_range
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] task_work_run
+            |
+            ---task_work_run
+               __fput
+               pipe_release
+               free_pipe_info
+               free_unref_page
+               free_pcp_prepare
+               __memcg_kmem_uncharge_page
+               obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] v9fs_vfs_readpages
+            |
+            ---v9fs_vfs_readpages
+               read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __fput
+            |
+            ---__fput
+               pipe_release
+               free_pipe_info
+               free_unref_page
+               free_pcp_prepare
+               __memcg_kmem_uncharge_page
+               obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] ksys_mmap_pgoff
+            |
+            ---ksys_mmap_pgoff
+               vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] read_cache_pages
+            |
+            ---read_cache_pages
+               v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     1.05%  matrix_vector  [kernel.kallsyms]     [k] _raw_spin_lock
+            |
+            ---main
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               _raw_spin_lock
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __x64_sys_exit_group
+            |
+            ---__x64_sys_exit_group
+               do_group_exit
+               do_exit
+               mmput
+               exit_mmap
+               unmap_vmas
+               unmap_page_range
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] pipe_release
+            |
+            ---pipe_release
+               free_pipe_info
+               free_unref_page
+               free_pcp_prepare
+               __memcg_kmem_uncharge_page
+               obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] v9fs_fid_readpage
+            |
+            ---v9fs_fid_readpage
+               p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] vm_mmap_pgoff
+            |
+            ---vm_mmap_pgoff
+               do_mmap
+               mmap_region
+               __do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  ld-linux-x86-64.so.2  [.] _dl_relocate_object
+            |
+            ---_dl_relocate_object
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               handle_mm_fault
+               __handle_mm_fault
+               copy_page
+
+     1.05%     1.05%  matrix_vector  [kernel.kallsyms]     [k] vmacache_find
+            |
+            ---main
+               asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               find_vma
+               vmacache_find
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] do_group_exit
+            |
+            ---do_group_exit
+               do_exit
+               mmput
+               exit_mmap
+               unmap_vmas
+               unmap_page_range
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] do_mmap
+            |
+            ---do_mmap
+               mmap_region
+               __do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] free_pipe_info
+            |
+            ---free_pipe_info
+               free_unref_page
+               free_pcp_prepare
+               __memcg_kmem_uncharge_page
+               obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] p9_client_read
+            |
+            ---p9_client_read
+               p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     1.05%  matrix_vector  libc.so.6             [.] __getrlimit
+            |
+            ---_dl_start_user
+               _dl_start
+               _dl_sysdep_start
+               dl_main
+               __getrlimit
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] do_exit
+            |
+            ---do_exit
+               mmput
+               exit_mmap
+               unmap_vmas
+               unmap_page_range
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] free_unref_page
+            |
+            ---free_unref_page
+               free_pcp_prepare
+               __memcg_kmem_uncharge_page
+               obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] mmap_region
+            |
+            ---mmap_region
+               __do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] p9_client_read_once
+            |
+            ---p9_client_read_once
+               p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __do_munmap
+            |
+            ---__do_munmap
+               __split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] free_pcp_prepare
+            |
+            ---free_pcp_prepare
+               __memcg_kmem_uncharge_page
+               obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] mmput
+            |
+            ---mmput
+               exit_mmap
+               unmap_vmas
+               unmap_page_range
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] p9_client_rpc
+            |
+            ---p9_client_rpc
+               schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __memcg_kmem_uncharge_page
+            |
+            ---__memcg_kmem_uncharge_page
+               obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __split_vma
+            |
+            ---__split_vma
+               __vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] exit_mmap
+            |
+            ---exit_mmap
+               unmap_vmas
+               unmap_page_range
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] schedule
+            |
+            ---schedule
+               __schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __schedule
+            |
+            ---__schedule
+               finish_task_switch.isra.0
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] __vma_adjust
+            |
+            ---__vma_adjust
+               vma_interval_tree_insert
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] find_vma
+            |
+            ---find_vma
+               vmacache_find
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] obj_cgroup_uncharge_pages
+            |
+            ---obj_cgroup_uncharge_pages
+               refill_stock
+
+     1.05%     0.00%  matrix_vector  [kernel.kallsyms]     [k] unmap_vmas
+            |
+            ---unmap_vmas
+               unmap_page_range
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

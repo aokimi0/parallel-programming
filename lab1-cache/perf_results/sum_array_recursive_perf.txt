@@ -1,0 +1,14 @@
+
+ Performance counter stats for './sum_array 3 22':
+
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+
+       0.040490423 seconds time elapsed
+
+       0.019765000 seconds user
+       0.009882000 seconds sys
+
+

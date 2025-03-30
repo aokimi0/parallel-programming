@@ -1,0 +1,15 @@
+
+ Performance counter stats for './matrix_vector 2 2000 2000':
+
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      cache-references                                            
+   <not supported>      cache-misses                                                
+   <not supported>      branch-misses                                               
+
+       0.035858786 seconds time elapsed
+
+       0.018453000 seconds user
+       0.000000000 seconds sys
+
+
