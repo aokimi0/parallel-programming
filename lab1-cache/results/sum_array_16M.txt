@@ -1,0 +1,7 @@
+数组大小: 16777216 元素
+Naive sum time: 16.39 ms
+Dual path sum time: 10.49 ms
+Recursive sum time: 45.25 ms
+Dual path speedup: 1.56x
+Recursive speedup: 0.36x
+Results match: No

@@ -1,0 +1,11 @@
+==19993== Cachegrind, a high-precision tracing profiler
+==19993== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==19993== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==19993== Command: ./bin/matrix_vector 1000 1
+==19993== 
+==19993== 
+==19993== I refs:        74,961,123
+==19993== 
+==19993== Branches:       7,966,394  (7,956,050 cond + 10,344 ind)
+==19993== Mispredicts:       29,096  (   27,885 cond +  1,211 ind)
+==19993== Mispred rate:         0.4% (      0.4%     +   11.7%   )

@@ -1,0 +1,4 @@
+Optimization Level,Column Access,Row Access,Speedup
+O0,210.75,65.56,3.21
+O2,100.72,11.03,9.13
+O3,100.03,12.66,7.90

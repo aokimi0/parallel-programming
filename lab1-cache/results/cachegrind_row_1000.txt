@@ -1,0 +1,11 @@
+==20047== Cachegrind, a high-precision tracing profiler
+==20047== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==20047== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==20047== Command: ./bin/matrix_vector 1000 2
+==20047== 
+==20047== 
+==20047== I refs:        68,966,601
+==20047== 
+==20047== Branches:       7,218,214  (7,207,874 cond + 10,340 ind)
+==20047== Mispredicts:       29,055  (   27,845 cond +  1,210 ind)
+==20047== Mispred rate:         0.4% (      0.4%     +   11.7%   )

@@ -1,0 +1,4 @@
+Optimization Level,Naive Algorithm,Dual Path Algorithm,Recursive Algorithm,Dual Path Speedup,Recursive Speedup
+O0,2.32,1.38,5.11,1.68,0.45
+O2,0.94,0.84,4.87,1.12,0.19
+O3,1.31,0.56,1.81,2.33,0.72

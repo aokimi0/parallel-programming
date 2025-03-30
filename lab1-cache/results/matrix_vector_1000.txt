@@ -1,0 +1,11 @@
+Col access time: 2.24 ms
+Row access time: 0.94 ms
+Row result matches: Yes
+Unroll5 time: 0.66 ms
+Unroll5 result matches: Yes
+Unroll10 time: 0.49 ms
+Unroll10 result matches: Yes
+Unroll15 time: 1.07 ms
+Unroll15 result matches: Yes
+Unroll20 time: 1.27 ms
+Unroll20 result matches: Yes

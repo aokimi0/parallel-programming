@@ -1,0 +1,60 @@
+% 代码样式设置
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.82]{beramono}
+\usepackage{microtype}
+\usepackage[procnames]{listings}
+
+% 代码颜色定义
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% 基础代码样式
+\lstset{
+  frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=fixed,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  frame=single,
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+% Scala语言定义
+\lstdefinelanguage{scala}{
+  morekeywords={abstract,case,catch,class,def,
+    do,else,extends,false,final,finally,
+    for,if,implicit,import,match,mixin,
+    new,null,object,override,package,
+    private,protected,requires,return,sealed,
+    super,this,throw,trait,true,try,
+    type,val,var,while,with,yield},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[n]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]"""
+}
+
+% 语言环境定义
+\lstnewenvironment{scala}[1][]
+{\lstset{language=scala,#1}}
+{}
+\lstnewenvironment{cpp}[1][]
+{\lstset{language=C++,#1}}
+{}
+\lstnewenvironment{bash}[1][]
+{\lstset{language=bash,#1}}
+{}
+\lstnewenvironment{verilog}[1][]
+{\lstset{language=verilog,#1}}
+{} 

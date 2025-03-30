@@ -1,0 +1,4 @@
+Matrix Size,Naive Algorithm (ms),Cache Optimized Algorithm (ms),Speedup
+1000,72.69,48.43,1.50
+2000,375.02,201.25,1.86
+4000,1382.99,943.10,1.46
