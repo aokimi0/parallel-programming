@@ -1,1 +1,58 @@
+# 项目特定忽略
 reference/
+.zip
+
+# 编译文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.o
+*.obj
+*.dll
+*.exe
+*.out
+
+# 编译目录
+build/
+dist/
+*.egg-info/
+
+# 虚拟环境
+venv/
+env/
+ENV/
+
+# IDE配置
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.vs/
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+*.swp
+*~
+
+# 本地配置和敏感信息
+.env
+.env.local
+config.local.json
+*.pem
+*.key
+
+# 百度网盘同步相关
+*.baiduyun.uploading.cfg
+*.baiduyun.syncing.cfg
