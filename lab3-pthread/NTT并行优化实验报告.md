@@ -1,5 +1,7 @@
 # NTT算法并行优化实验报告
 
+代码仓库见[github](https://github.com/aokimi0/parallel-programming)
+
 ## 1. 实验概述
 
 ### 1.1 研究背景与意义
