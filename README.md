@@ -1,5 +1,7 @@
 # parallel-programming
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 25spring, Gang Wang
 
 ## 目录
