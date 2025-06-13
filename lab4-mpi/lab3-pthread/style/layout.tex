@@ -1,0 +1,42 @@
+% 页面布局设置
+\usepackage{geometry}
+\geometry{a4paper,left=2.3cm,right=2.3cm,top=2.7cm,bottom=2.7cm}
+
+% 页眉页脚
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% 章节格式
+\usepackage{sectsty}
+\sectionfont{\LARGE}
+\subsectionfont{\Large}
+\subsubsectionfont{\large}
+
+% 表格设置
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}  % 提供高级表格功能
+\usepackage{makecell} % 用于表格单元格中的换行
+\usepackage{threeparttable} % 为表格添加注释
+
+% 表格间距设置
+\setlength{\tabcolsep}{5pt} % 列间距
+\renewcommand{\arraystretch}{1.2} % 行间距
+
+% 定义新的列类型，用于居中显示文本
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+% 图表设置
+\usepackage{caption}
+% \usepackage{subfigure} % 已在main.tex中使用subcaption代替
+\setlength{\textfloatsep}{10mm}
+
+% 标题线设置
+\providecommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\providecommand{\HRulegrossa}{\rule{\linewidth}{1.2mm}} 

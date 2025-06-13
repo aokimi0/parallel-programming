@@ -1,0 +1,494 @@
+NTT实现综合性能测试报告
+生成时间: Tue May 27 11:01:21 CST 2025
+测试运行次数: 3 次
+参考实现 (普通NTT): src/ntt_serial
+参考实现 (CRT任意模 - 传统): src/ntt_crt_arbitrary_serial
+参考实现 (CRT任意模 - 朴素验证): src/naive_poly_mult
+
+====================================
+测试环境信息
+====================================
+操作系统: Linux book 5.15.167.4-microsoft-standard-WSL2 #1 SMP Tue Nov 5 00:21:55 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+编译器: g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+CPU信息: 12th Gen Intel(R) Core(TM) i5-12500H
+内核数: 16
+
+====================================
+测试参数配置
+====================================
+测试规模: 1000 10000 100000
+测试模数: 7340033 104857601 469762049 1337006139375617 100000000000000000 1000000000000000000 5000000000000000000
+线程配置: 1 2 4 8
+
+====================================
+详细测试结果
+====================================
+
+ntt_serial (串行): n=1000, mod=7340033, 平均时间=0.023228s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=1000, mod=7340033, 平均时间=0.042782s (3/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=1000, mod=7340033, 平均时间=0.035139s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=1000, mod=7340033, 平均时间=0.029359s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=1000, mod=7340033, 平均时间=0.058559s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=1000, mod=7340033, 平均时间=0.039981s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=1000, mod=7340033, 平均时间=0.029026s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=1000, mod=7340033, 平均时间=0.038985s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=1000, mod=7340033, 平均时间=0.026333s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=1000, mod=7340033, 平均时间=0.022405s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=1000, mod=7340033, 平均时间=0.030823s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=1000, mod=7340033, 平均时间=0.029219s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=1000, mod=7340033, 平均时间=0.036940s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=1000, mod=7340033, 平均时间=0.039967s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=1000, mod=7340033, 平均时间=0.031836s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=1000, mod=7340033, 平均时间=0.030727s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=1000, mod=7340033, 平均时间=0.027819s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=1000, mod=7340033, 平均时间=0.032247s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=1000, mod=7340033, 平均时间=0.028745s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=1000, mod=7340033, 平均时间=0.041010s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=1000, mod=7340033, 平均时间=0.037054s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=1000, mod=7340033, 平均时间=0.030836s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=1000, mod=104857601, 平均时间=0.019249s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=1000, mod=104857601, 平均时间=0.028319s (3/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=1000, mod=104857601, 平均时间=0.019240s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=1000, mod=104857601, 平均时间=0.025339s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=1000, mod=104857601, 平均时间=0.027063s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=1000, mod=104857601, 平均时间=0.020593s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=1000, mod=104857601, 平均时间=0.019881s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=1000, mod=104857601, 平均时间=0.021838s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=1000, mod=104857601, 平均时间=0.028200s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=1000, mod=104857601, 平均时间=0.042870s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=1000, mod=104857601, 平均时间=0.039313s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=1000, mod=104857601, 平均时间=0.042885s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=1000, mod=104857601, 平均时间=0.030220s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=1000, mod=104857601, 平均时间=0.059118s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=1000, mod=104857601, 平均时间=0.029112s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=1000, mod=104857601, 平均时间=0.026873s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=1000, mod=104857601, 平均时间=0.041956s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=1000, mod=104857601, 平均时间=0.028871s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=1000, mod=104857601, 平均时间=0.026488s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=1000, mod=104857601, 平均时间=0.041752s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=1000, mod=104857601, 平均时间=0.024692s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=1000, mod=104857601, 平均时间=0.037930s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=1000, mod=469762049, 平均时间=0.026951s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=1000, mod=469762049, 平均时间=0.038223s (3/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=1000, mod=469762049, 平均时间=0.049502s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=1000, mod=469762049, 平均时间=0.043218s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=1000, mod=469762049, 平均时间=0.040410s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=1000, mod=469762049, 平均时间=0.034116s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=1000, mod=469762049, 平均时间=0.033325s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=1000, mod=469762049, 平均时间=0.035706s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=1000, mod=469762049, 平均时间=0.034417s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=1000, mod=469762049, 平均时间=0.025246s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=1000, mod=469762049, 平均时间=0.013476s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=1000, mod=469762049, 平均时间=0.032719s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=1000, mod=469762049, 平均时间=0.034277s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=1000, mod=469762049, 平均时间=0.023167s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=1000, mod=469762049, 平均时间=0.025640s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=1000, mod=469762049, 平均时间=0.031828s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=1000, mod=469762049, 平均时间=0.034062s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=1000, mod=469762049, 平均时间=0.023932s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=1000, mod=469762049, 平均时间=0.033690s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=1000, mod=469762049, 平均时间=0.028680s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=1000, mod=469762049, 平均时间=0.029266s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=1000, mod=469762049, 平均时间=0.046015s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=1000, mod=1337006139375617, 平均时间=0.022333s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=1000, mod=1337006139375617, 平均时间=0.032193s (3/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=1000, mod=1337006139375617, 平均时间=0.034092s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=1000, mod=1337006139375617, 平均时间=0.031218s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=1000, mod=1337006139375617, 平均时间=0.058132s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=1000, mod=1337006139375617, 平均时间=0.037562s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=1000, mod=1337006139375617, 平均时间=0.019203s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=1000, mod=1337006139375617, 平均时间=0.039553s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=1000, mod=1337006139375617, 平均时间=0.039307s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=1000, mod=1337006139375617, 平均时间=0.019477s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=1000, mod=1337006139375617, 平均时间=0.016662s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=1000, mod=1337006139375617, 平均时间=0.018927s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=1000, mod=1337006139375617, 平均时间=0.021530s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=1000, mod=1337006139375617, 平均时间=0.024880s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=1000, mod=1337006139375617, 平均时间=0.038305s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=1000, mod=1337006139375617, 平均时间=0.027889s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=1000, mod=1337006139375617, 平均时间=0.020651s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=1000, mod=1337006139375617, 平均时间=0.037947s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=1000, mod=1337006139375617, 平均时间=0.045778s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=1000, mod=1337006139375617, 平均时间=0.036142s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=1000, mod=1337006139375617, 平均时间=0.017366s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=1000, mod=1337006139375617, 平均时间=0.031395s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=1000, mod=100000000000000000, 平均时间=N/A (无有效计时), 结果验证=FAIL_TIMING_NO_VALID_RUNS
+ntt_pthread (1线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (2线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (4线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (8线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (1线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (2线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (4线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (8线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (1线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (2线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (4线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (8线程): n=1000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_crt_arbitrary_serial (串行): n=1000, mod=100000000000000000, 平均时间=0.022044s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=1000, mod=100000000000000000, 平均时间=0.029252s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=1000, mod=100000000000000000, 平均时间=0.026025s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=1000, mod=100000000000000000, 平均时间=0.031888s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=1000, mod=100000000000000000, 平均时间=0.026063s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=1000, mod=100000000000000000, 平均时间=0.052476s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=1000, mod=100000000000000000, 平均时间=0.018466s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=1000, mod=100000000000000000, 平均时间=0.028164s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=1000, mod=100000000000000000, 平均时间=0.033153s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=1000, mod=1000000000000000000, 平均时间=N/A (无有效计时), 结果验证=FAIL_TIMING_NO_VALID_RUNS
+ntt_pthread (1线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (2线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (4线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (8线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (1线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (2线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (4线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (8线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (1线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (2线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (4线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (8线程): n=1000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_crt_arbitrary_serial (串行): n=1000, mod=1000000000000000000, 平均时间=0.039429s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=1000, mod=1000000000000000000, 平均时间=0.027270s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=1000, mod=1000000000000000000, 平均时间=0.033735s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=1000, mod=1000000000000000000, 平均时间=0.036725s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=1000, mod=1000000000000000000, 平均时间=0.034998s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=1000, mod=1000000000000000000, 平均时间=0.028828s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=1000, mod=1000000000000000000, 平均时间=0.043242s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=1000, mod=1000000000000000000, 平均时间=0.042840s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=1000, mod=1000000000000000000, 平均时间=0.035729s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=1000, mod=5000000000000000000, 平均时间=N/A (无有效计时), 结果验证=FAIL_TIMING_NO_VALID_RUNS
+ntt_pthread (1线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (2线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (4线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (8线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (1线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (2线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (4线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (8线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (1线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (2线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (4线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (8线程): n=1000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_crt_arbitrary_serial (串行): n=1000, mod=5000000000000000000, 平均时间=0.041492s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=1000, mod=5000000000000000000, 平均时间=0.056237s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=1000, mod=5000000000000000000, 平均时间=0.045290s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=1000, mod=5000000000000000000, 平均时间=0.038940s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=1000, mod=5000000000000000000, 平均时间=0.037755s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=1000, mod=5000000000000000000, 平均时间=0.041580s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=1000, mod=5000000000000000000, 平均时间=0.050003s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=1000, mod=5000000000000000000, 平均时间=0.033303s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=1000, mod=5000000000000000000, 平均时间=0.037488s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=10000, mod=7340033, 平均时间=0.065556s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=10000, mod=7340033, 平均时间=0.061736s (3/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=10000, mod=7340033, 平均时间=0.064285s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=10000, mod=7340033, 平均时间=0.063341s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=10000, mod=7340033, 平均时间=0.042089s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=10000, mod=7340033, 平均时间=0.089993s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=10000, mod=7340033, 平均时间=0.077773s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=10000, mod=7340033, 平均时间=0.055628s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=10000, mod=7340033, 平均时间=0.069498s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=10000, mod=7340033, 平均时间=0.055270s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=10000, mod=7340033, 平均时间=0.054299s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=10000, mod=7340033, 平均时间=0.070119s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=10000, mod=7340033, 平均时间=0.031088s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=10000, mod=7340033, 平均时间=0.092962s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=10000, mod=7340033, 平均时间=0.081060s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=10000, mod=7340033, 平均时间=0.052756s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=10000, mod=7340033, 平均时间=0.056648s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=10000, mod=7340033, 平均时间=0.067391s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=10000, mod=7340033, 平均时间=0.089079s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=10000, mod=7340033, 平均时间=0.054804s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=10000, mod=7340033, 平均时间=0.056579s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=10000, mod=7340033, 平均时间=0.060141s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=10000, mod=104857601, 平均时间=0.052072s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=10000, mod=104857601, 平均时间=0.061900s (3/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=10000, mod=104857601, 平均时间=0.069155s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=10000, mod=104857601, 平均时间=0.071579s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=10000, mod=104857601, 平均时间=0.060267s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=10000, mod=104857601, 平均时间=0.038454s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=10000, mod=104857601, 平均时间=0.056882s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=10000, mod=104857601, 平均时间=0.063794s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=10000, mod=104857601, 平均时间=0.057535s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=10000, mod=104857601, 平均时间=0.045582s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=10000, mod=104857601, 平均时间=0.040106s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=10000, mod=104857601, 平均时间=0.033257s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=10000, mod=104857601, 平均时间=0.046693s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=10000, mod=104857601, 平均时间=0.094525s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=10000, mod=104857601, 平均时间=0.083069s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=10000, mod=104857601, 平均时间=0.064660s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=10000, mod=104857601, 平均时间=0.083125s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=10000, mod=104857601, 平均时间=0.073514s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=10000, mod=104857601, 平均时间=0.116069s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=10000, mod=104857601, 平均时间=0.063242s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=10000, mod=104857601, 平均时间=0.064674s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=10000, mod=104857601, 平均时间=0.066095s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=10000, mod=469762049, 平均时间=0.028695s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=10000, mod=469762049, 平均时间=0.052155s (3/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=10000, mod=469762049, 平均时间=0.042974s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=10000, mod=469762049, 平均时间=0.051641s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=10000, mod=469762049, 平均时间=0.052270s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=10000, mod=469762049, 平均时间=0.035465s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=10000, mod=469762049, 平均时间=0.064223s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=10000, mod=469762049, 平均时间=0.060066s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=10000, mod=469762049, 平均时间=0.044394s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=10000, mod=469762049, 平均时间=0.051568s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=10000, mod=469762049, 平均时间=0.028218s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=10000, mod=469762049, 平均时间=0.038783s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=10000, mod=469762049, 平均时间=0.045501s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=10000, mod=469762049, 平均时间=0.059975s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=10000, mod=469762049, 平均时间=0.051292s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=10000, mod=469762049, 平均时间=0.067523s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=10000, mod=469762049, 平均时间=0.061497s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=10000, mod=469762049, 平均时间=0.052461s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=10000, mod=469762049, 平均时间=0.061354s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=10000, mod=469762049, 平均时间=0.077061s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=10000, mod=469762049, 平均时间=0.060718s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=10000, mod=469762049, 平均时间=0.089631s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=10000, mod=1337006139375617, 平均时间=0.050673s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=10000, mod=1337006139375617, 平均时间=0.056000s (3/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=10000, mod=1337006139375617, 平均时间=0.062676s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=10000, mod=1337006139375617, 平均时间=0.050681s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=10000, mod=1337006139375617, 平均时间=0.055012s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=10000, mod=1337006139375617, 平均时间=0.054553s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=10000, mod=1337006139375617, 平均时间=0.053879s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=10000, mod=1337006139375617, 平均时间=0.048367s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=10000, mod=1337006139375617, 平均时间=0.055379s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=10000, mod=1337006139375617, 平均时间=0.067149s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=10000, mod=1337006139375617, 平均时间=0.031701s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=10000, mod=1337006139375617, 平均时间=0.039099s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=10000, mod=1337006139375617, 平均时间=0.045072s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=10000, mod=1337006139375617, 平均时间=0.082443s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=10000, mod=1337006139375617, 平均时间=0.078566s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=10000, mod=1337006139375617, 平均时间=0.066762s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=10000, mod=1337006139375617, 平均时间=0.069639s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=10000, mod=1337006139375617, 平均时间=0.060444s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=10000, mod=1337006139375617, 平均时间=0.094650s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=10000, mod=1337006139375617, 平均时间=0.058802s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=10000, mod=1337006139375617, 平均时间=0.044946s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=10000, mod=1337006139375617, 平均时间=0.087651s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=10000, mod=100000000000000000, 平均时间=N/A (无有效计时), 结果验证=FAIL_TIMING_NO_VALID_RUNS
+ntt_pthread (1线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (2线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (4线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (8线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (1线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (2线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (4线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (8线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (1线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (2线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (4线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (8线程): n=10000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_crt_arbitrary_serial (串行): n=10000, mod=100000000000000000, 平均时间=0.067894s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=10000, mod=100000000000000000, 平均时间=0.055904s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=10000, mod=100000000000000000, 平均时间=0.079735s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=10000, mod=100000000000000000, 平均时间=0.099447s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=10000, mod=100000000000000000, 平均时间=0.086923s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=10000, mod=100000000000000000, 平均时间=0.063877s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=10000, mod=100000000000000000, 平均时间=0.055497s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=10000, mod=100000000000000000, 平均时间=0.059021s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=10000, mod=100000000000000000, 平均时间=0.087780s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=10000, mod=1000000000000000000, 平均时间=N/A (无有效计时), 结果验证=FAIL_TIMING_NO_VALID_RUNS
+ntt_pthread (1线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (2线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (4线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (8线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (1线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (2线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (4线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (8线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (1线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (2线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (4线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (8线程): n=10000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_crt_arbitrary_serial (串行): n=10000, mod=1000000000000000000, 平均时间=0.090393s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=10000, mod=1000000000000000000, 平均时间=0.062720s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=10000, mod=1000000000000000000, 平均时间=0.073258s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=10000, mod=1000000000000000000, 平均时间=0.086037s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=10000, mod=1000000000000000000, 平均时间=0.073064s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=10000, mod=1000000000000000000, 平均时间=0.090250s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=10000, mod=1000000000000000000, 平均时间=0.088538s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=10000, mod=1000000000000000000, 平均时间=0.073444s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=10000, mod=1000000000000000000, 平均时间=0.088807s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=10000, mod=5000000000000000000, 平均时间=N/A (无有效计时), 结果验证=FAIL_TIMING_NO_VALID_RUNS
+ntt_pthread (1线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (2线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (4线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (8线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (1线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (2线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (4线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (8线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (1线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (2线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (4线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (8线程): n=10000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_crt_arbitrary_serial (串行): n=10000, mod=5000000000000000000, 平均时间=0.057938s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=10000, mod=5000000000000000000, 平均时间=0.091409s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=10000, mod=5000000000000000000, 平均时间=0.088129s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=10000, mod=5000000000000000000, 平均时间=0.107865s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=10000, mod=5000000000000000000, 平均时间=0.072149s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=10000, mod=5000000000000000000, 平均时间=0.072784s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=10000, mod=5000000000000000000, 平均时间=0.065786s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=10000, mod=5000000000000000000, 平均时间=0.048884s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=10000, mod=5000000000000000000, 平均时间=0.068569s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=100000, mod=7340033, 平均时间=0.187633s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=100000, mod=7340033, 平均时间=0.286674s (3/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=100000, mod=7340033, 平均时间=0.170801s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=100000, mod=7340033, 平均时间=0.142922s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=100000, mod=7340033, 平均时间=0.147027s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=100000, mod=7340033, 平均时间=0.293266s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=100000, mod=7340033, 平均时间=0.156431s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=100000, mod=7340033, 平均时间=0.121890s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=100000, mod=7340033, 平均时间=0.194284s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=100000, mod=7340033, 平均时间=0.237101s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=100000, mod=7340033, 平均时间=0.187698s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=100000, mod=7340033, 平均时间=0.147998s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=100000, mod=7340033, 平均时间=0.148760s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=100000, mod=7340033, 平均时间=0.436350s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=100000, mod=7340033, 平均时间=0.297949s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=100000, mod=7340033, 平均时间=0.245324s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=100000, mod=7340033, 平均时间=0.224795s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=100000, mod=7340033, 平均时间=0.205381s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=100000, mod=7340033, 平均时间=0.437851s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=100000, mod=7340033, 平均时间=0.382376s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=100000, mod=7340033, 平均时间=0.234776s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=100000, mod=7340033, 平均时间=0.273901s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=100000, mod=104857601, 平均时间=0.270151s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=100000, mod=104857601, 平均时间=0.245604s (3/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=100000, mod=104857601, 平均时间=0.197277s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=100000, mod=104857601, 平均时间=0.195207s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=100000, mod=104857601, 平均时间=0.200394s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=100000, mod=104857601, 平均时间=0.265114s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=100000, mod=104857601, 平均时间=0.186131s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=100000, mod=104857601, 平均时间=0.109974s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=100000, mod=104857601, 平均时间=0.143785s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=100000, mod=104857601, 平均时间=0.212698s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=100000, mod=104857601, 平均时间=0.152777s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=100000, mod=104857601, 平均时间=0.151969s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=100000, mod=104857601, 平均时间=0.189077s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=100000, mod=104857601, 平均时间=0.566110s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=100000, mod=104857601, 平均时间=0.273086s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=100000, mod=104857601, 平均时间=0.250824s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=100000, mod=104857601, 平均时间=0.208414s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=100000, mod=104857601, 平均时间=0.215015s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=100000, mod=104857601, 平均时间=0.453624s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=100000, mod=104857601, 平均时间=0.317732s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=100000, mod=104857601, 平均时间=0.228597s (2/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=100000, mod=104857601, 平均时间=0.215907s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=100000, mod=469762049, 平均时间=0.206184s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=100000, mod=469762049, 平均时间=0.305071s (2/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=100000, mod=469762049, 平均时间=0.195260s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=100000, mod=469762049, 平均时间=0.226612s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=100000, mod=469762049, 平均时间=0.177078s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=100000, mod=469762049, 平均时间=0.251068s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=100000, mod=469762049, 平均时间=0.204663s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=100000, mod=469762049, 平均时间=0.150003s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=100000, mod=469762049, 平均时间=0.191397s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=100000, mod=469762049, 平均时间=0.194988s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=100000, mod=469762049, 平均时间=0.139619s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=100000, mod=469762049, 平均时间=0.151385s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=100000, mod=469762049, 平均时间=0.180707s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=100000, mod=469762049, 平均时间=0.512986s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=100000, mod=469762049, 平均时间=0.291754s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=100000, mod=469762049, 平均时间=0.258949s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=100000, mod=469762049, 平均时间=0.253113s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=100000, mod=469762049, 平均时间=0.251977s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=100000, mod=469762049, 平均时间=0.491475s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=100000, mod=469762049, 平均时间=0.341527s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=100000, mod=469762049, 平均时间=0.229435s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=100000, mod=469762049, 平均时间=0.203556s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=100000, mod=1337006139375617, 平均时间=0.147985s (3/3 次有效), 结果验证=PASS_REF_SELF_SKIP
+ntt_pthread (1线程): n=100000, mod=1337006139375617, 平均时间=0.176428s (3/3 次有效), 结果验证=PASS
+ntt_pthread (2线程): n=100000, mod=1337006139375617, 平均时间=0.214365s (3/3 次有效), 结果验证=PASS
+ntt_pthread (4线程): n=100000, mod=1337006139375617, 平均时间=0.201160s (3/3 次有效), 结果验证=PASS
+ntt_pthread (8线程): n=100000, mod=1337006139375617, 平均时间=0.201488s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (1线程): n=100000, mod=1337006139375617, 平均时间=0.266849s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (2线程): n=100000, mod=1337006139375617, 平均时间=0.206141s (3/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (4线程): n=100000, mod=1337006139375617, 平均时间=0.188184s (2/3 次有效), 结果验证=PASS
+ntt_pthread_optimized (8线程): n=100000, mod=1337006139375617, 平均时间=0.191976s (3/3 次有效), 结果验证=PASS
+ntt_openmp (1线程): n=100000, mod=1337006139375617, 平均时间=0.224835s (3/3 次有效), 结果验证=PASS
+ntt_openmp (2线程): n=100000, mod=1337006139375617, 平均时间=0.213453s (3/3 次有效), 结果验证=PASS
+ntt_openmp (4线程): n=100000, mod=1337006139375617, 平均时间=0.178514s (3/3 次有效), 结果验证=PASS
+ntt_openmp (8线程): n=100000, mod=1337006139375617, 平均时间=0.205270s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_serial (串行): n=100000, mod=1337006139375617, 平均时间=0.558164s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=100000, mod=1337006139375617, 平均时间=0.323550s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=100000, mod=1337006139375617, 平均时间=0.240091s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=100000, mod=1337006139375617, 平均时间=0.248558s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=100000, mod=1337006139375617, 平均时间=0.228932s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=100000, mod=1337006139375617, 平均时间=0.476874s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=100000, mod=1337006139375617, 平均时间=0.322664s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=100000, mod=1337006139375617, 平均时间=0.237153s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=100000, mod=1337006139375617, 平均时间=0.300263s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=100000, mod=100000000000000000, 平均时间=N/A (无有效计时), 结果验证=FAIL_TIMING_NO_VALID_RUNS
+ntt_pthread (1线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (2线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (4线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (8线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (1线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (2线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (4线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (8线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (1线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (2线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (4线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (8线程): n=100000, mod=100000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_crt_arbitrary_serial (串行): n=100000, mod=100000000000000000, 平均时间=0.363891s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=100000, mod=100000000000000000, 平均时间=0.251391s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=100000, mod=100000000000000000, 平均时间=0.229556s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=100000, mod=100000000000000000, 平均时间=0.220571s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=100000, mod=100000000000000000, 平均时间=0.224444s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=100000, mod=100000000000000000, 平均时间=0.376358s (2/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=100000, mod=100000000000000000, 平均时间=0.235073s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=100000, mod=100000000000000000, 平均时间=0.237265s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=100000, mod=100000000000000000, 平均时间=0.285425s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=100000, mod=1000000000000000000, 平均时间=N/A (无有效计时), 结果验证=FAIL_TIMING_NO_VALID_RUNS
+ntt_pthread (1线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (2线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (4线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (8线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (1线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (2线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (4线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (8线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (1线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (2线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (4线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (8线程): n=100000, mod=1000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_crt_arbitrary_serial (串行): n=100000, mod=1000000000000000000, 平均时间=0.293603s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=100000, mod=1000000000000000000, 平均时间=0.249285s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=100000, mod=1000000000000000000, 平均时间=0.240092s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=100000, mod=1000000000000000000, 平均时间=0.241193s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=100000, mod=1000000000000000000, 平均时间=0.245483s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=100000, mod=1000000000000000000, 平均时间=0.360196s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=100000, mod=1000000000000000000, 平均时间=0.262392s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=100000, mod=1000000000000000000, 平均时间=0.262838s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=100000, mod=1000000000000000000, 平均时间=0.265777s (3/3 次有效), 结果验证=PASS
+ntt_serial (串行): n=100000, mod=5000000000000000000, 平均时间=N/A (无有效计时), 结果验证=FAIL_TIMING_NO_VALID_RUNS
+ntt_pthread (1线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (2线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (4线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread (8线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (1线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (2线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (4线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_pthread_optimized (8线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (1线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (2线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (4线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_openmp (8线程): n=100000, mod=5000000000000000000, 结果验证=FAIL_EXECUTION (执行失败)
+ntt_crt_arbitrary_serial (串行): n=100000, mod=5000000000000000000, 平均时间=0.388646s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (1线程): n=100000, mod=5000000000000000000, 平均时间=0.241658s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (2线程): n=100000, mod=5000000000000000000, 平均时间=0.237755s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (4线程): n=100000, mod=5000000000000000000, 平均时间=0.271493s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_pthread (8线程): n=100000, mod=5000000000000000000, 平均时间=0.211042s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (1线程): n=100000, mod=5000000000000000000, 平均时间=0.389032s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (2线程): n=100000, mod=5000000000000000000, 平均时间=0.265361s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (4线程): n=100000, mod=5000000000000000000, 平均时间=0.217759s (3/3 次有效), 结果验证=PASS
+ntt_crt_arbitrary_openmp (8线程): n=100000, mod=5000000000000000000, 平均时间=0.246356s (3/3 次有效), 结果验证=PASS
+
+=====================================
+测试完成时间: Tue May 27 11:09:02 CST 2025
+性能数据文件: fig/性能数据_20250527_110121.csv
+说明: 性能数据针对的是各自参考实现验证通过的测试
+=====================================
