@@ -33,17 +33,20 @@ ll inv_exgcd(ll n, ll mod);
 // Barrett规约结构和函数
 struct BarrettReduction {
     ll mod;
-    ll r;
+    __int128 r;
     int k;
     
-    BarrettReduction(ll m) : mod(m), k(64) {
-        r = (((__int128)1 << k) / mod);
+    BarrettReduction(ll m) : mod(m) {
+        k = 64;
+        r = ((__int128)1 << k) / mod;
     }
     
-    ll reduce(ll x) const {
-        ll q = ((__int128)x * r) >> k;
-        ll result = x - q * mod;
-        return result >= mod ? result - mod : result;
+    ll reduce(__int128 x) const {
+        __int128 q = (x * r) >> k;
+        __int128 result = x - q * mod;
+        if (result >= mod) result -= mod;
+        if (result < 0) result += mod;
+        return (ll)result;
     }
     
     ll multiply(ll a, ll b) const {
